@@ -8,7 +8,7 @@ export default function fetchPosts() {
     try {
       let data = await fetch('https://jsonplaceholder.typicode.com/posts')
       if (!data.ok) {
-        throw Error('Erro ao obter os dados da API JSONPlaceholder.')
+        throw Error('Erro ao obter os dados da API.')
       }
       posts.value = await data.json()
     } catch (err) {
