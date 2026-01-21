@@ -40,7 +40,6 @@ loadPosts()
     display: flex;
     flex-direction: column;
     padding: 2rem;
-    min-width: 50%;
     background-color: var(--dark-gray-2);
     color: white;
   }

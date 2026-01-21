@@ -25,7 +25,7 @@ const filteredPosts = filterPosts(posts, filter, true)
     <hr class="separator" />
     <div class="posts">
       <Post v-for="post in filteredPosts[currentPage]" :key="post.id" 
-        :title="post.title" :body="post.body" />
+        :author-id="post.userId" :title="post.title" :body="post.body" />
     </div>
     <hr class="separator" />
     <footer>
@@ -90,6 +90,11 @@ const filteredPosts = filterPosts(posts, filter, true)
         border: 2px solid var(--dark-gray-1);
         border-radius: .75rem;
       }
+    }
+    .posts {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
     }
     footer {
       display: flex;
