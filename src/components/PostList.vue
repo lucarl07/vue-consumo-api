@@ -1,29 +1,14 @@
 <script setup>
 import Post from 'components/Post.vue';
-import { computed, ref } from 'vue';
+import { ref } from 'vue';
+import filterPosts from 'composables/filterPosts';
 
 const { posts } = defineProps(['posts'])
 
 const filter = ref('')
 const currentPage = ref(0)
 
-const filteredPosts = computed(() => {
-  /* Filtrando as postagens com base no valor do input de busca: */
-  const matchingTitlePosts = posts.filter(post => 
-    post.title
-      .toLowerCase()
-      .includes(filter.value.toLowerCase())
-  )
-  
-  const p = []
-  const pageMaxSize = 10 // Máximo de 10 postagens por página
-
-  /* Dividindo as postagens em páginas: */
-  for (let i = 0; i < matchingTitlePosts.length; i += pageMaxSize) {
-    p.push(matchingTitlePosts.slice(i, i + pageMaxSize))
-  }
-  return p
-})
+const filteredPosts = filterPosts(posts, filter, true)
 </script>
 
 <template lang="html">
