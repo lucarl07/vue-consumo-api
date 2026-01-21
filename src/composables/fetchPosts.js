@@ -10,7 +10,9 @@ export default function fetchPosts() {
       if (!data.ok) {
         throw Error('Erro ao obter os dados da API.')
       }
-      posts.value = await data.json()
+      let parsedData = await data.json()
+      posts.value = parsedData
+      console.log('[200 OK] Dados retornados:', parsedData)
     } catch (err) {
       error.value = err.message
       console.log(`[ERROR] => ${error.value}`)

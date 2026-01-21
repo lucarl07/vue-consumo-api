@@ -18,6 +18,7 @@ const filteredPosts = filterPosts(posts, filter, true)
       <input 
         type="text" id="filter-by" v-model="filter"
         placeholder="Buscar por título..." />
+      <slot name="header"></slot>
     </header>
     <hr />
     <div class="posts">

@@ -10,7 +10,11 @@ loadPosts()
 
 <template>
   <h1>Página Inicial</h1>
-  <PostList v-if="posts.length" :posts="posts" />
+  <PostList v-if="posts.length" :posts="posts">
+    <template v-slot:header>
+      <button @click="loadPosts">Recarregar dados</button>
+    </template>
+  </PostList>
   <Error v-else-if="error" title="Um erro ocorreu no sistema!" :message="error" />
   <LoadingScreen v-else message="Carregando postagens..." />
 </template>
